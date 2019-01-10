@@ -10,8 +10,10 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :nvc_slack_bot, NVCSlackBotWeb.Endpoint,
+  load_from_system_env: true,
   http: [port: {:system, "PORT"}],
-  url: [host: "localhost", port: {:system, "PORT"}], # This is critical for ensuring web-sockets properly authorize.
+  # This is critical for ensuring web-sockets properly authorize.
+  url: [host: "localhost", port: {:system, "PORT"}],
   # cache_static_manifest: "priv/static/cache_manifest.json"
   server: true,
   root: ".",
@@ -71,4 +73,4 @@ config :logger, level: :info
 
 # Finally import the config/prod.secret.exs which should be versioned
 # separately.
-import_config "prod.secret.exs"
+# import_config "prod.secret.exs"
